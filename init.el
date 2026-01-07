@@ -97,28 +97,30 @@
   (general-auto-unbind-keys)
   (general-evil-setup t)
 
-  ;; leader prefixed
+  ;;;;; leader prefixed
   (general-create-definer leader
     :prefix "SPC")
   (leader
     :states '(motion normal visual)
     :keymaps 'override
 
-    "x" '(execute-extended-command :which-key "execute command")
-    "u" '(universal-argument :which-key "Universal argument")
+    "x" '(execute-extended-command :which-key "execute-extended-command")
+    "X" '(execute-extended-command-for-buffer :which-key "execute-extended-command-for-buffer")
+    "u" '(universal-argument :which-key "universal-argument")
 
-    ;; eval
+    ;;;;;; eval
     "e" '(:ignore t :which-key "eval")
     "eb" '(eval-buffer :which-key "eval-buffer")
     "ee" '(eval-expression :which-key "eval-expression")
     "ef" '(eval-defun :which-key "eval-defun")
+    "er" '(eval-region :which-key "eval-region")
     "es" '(eval-last-sexp :which-key "eval-last-sexp")
 
-    ;; refactor
+    ;;;;;; refactor
     "r" '(:ignore t :whick-key "refactor")
     "rn" '(eglot-rename :which-key "rename symbol")
 
-    ;; consult
+    ;;;;;; consult
     "c" '(:ignore t :which-key "consult")
     "cb" '(consult-buffer :which-key "consult-buffer")
     "cp" '(consult-ls-git-ls-files :which-key "Find file in project")
@@ -126,16 +128,16 @@
     "cm" '(consult-global-mark :which-key "consult-global-mark")
     "cM" '(consult-mark :which-key "consult-mark"))
 
-   ;; normal mode
+   ;;;;; normal mode
    (general-define-key
     :states '(normal visual)
 
-    ;; nagivation
+    ;;;;;; nagivation
     "g" '(:ignore t :which-key "navigate")
     "gr" '(xref-find-references :which-key "Find references")
     "gd" '(xref-find-definitions :which-key "Find definition(s)"))
 
-    ;; insert mode
+   ;;;;; insert mode
    (general-define-key
     :states 'insert
 
