@@ -106,24 +106,6 @@
   :config
   (setq olivetti-body-width 88))
 
-;;;; Tree-sitter
-(setq treesit-language-source-alist
-   '((bash "https://github.com/tree-sitter/tree-sitter-bash")
-     (css "https://github.com/tree-sitter/tree-sitter-css")
-     (elisp "https://github.com/Wilfred/tree-sitter-elisp")
-     (html "https://github.com/tree-sitter/tree-sitter-html")
-     (javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
-     (json "https://github.com/tree-sitter/tree-sitter-json")
-     (markdown "https://github.com/ikatyang/tree-sitter-markdown")
-     (python "https://github.com/tree-sitter/tree-sitter-python")
-     (racket "https://github.com/6cdh/tree-sitter-racket")
-     (rust "https://github.com/tree-sitter/tree-sitter-rust")
-     (scheme "https://github.com/6cdh/tree-sitter-scheme")
-     (toml "https://github.com/tree-sitter/tree-sitter-toml")
-     (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
-     (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
-     (wasm "https://github.com/wasm-lsp/tree-sitter-wasm")
-     (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
 ;;;; Completion
 (use-package vertico
   :custom
@@ -194,11 +176,13 @@
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
+;;;; Tree-sitter
 (use-package treesit-auto
+  :custom
+  (treesit-auto-install 'prompt)
   :config
-  (setq treesit-auto-install t)
+  (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
-
 
 (use-package rust-mode
   :init

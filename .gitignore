@@ -4,10 +4,12 @@
 
 auto-save-list
 history
+places
 recentf
 savehist
 saveplace
-eshell
-elpa
-eln-cache
-transient
+
+elpa/
+eln-cache/
+transient/
+tree-sitter/
