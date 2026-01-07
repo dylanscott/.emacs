@@ -12,10 +12,11 @@
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
-(setq backup-directory-alist
-      `(("." . ,(concat user-emacs-directory "backups"))))
 (setq auto-save-file-name-transforms
       `((".*" ,(concat user-emacs-directory "auto-save/") t)))
+(setq backup-directory-alist
+      `(("." . ,(concat user-emacs-directory "backups"))))
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 ;;; $PATH
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
