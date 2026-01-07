@@ -29,10 +29,6 @@
       `(("." . ,(concat user-emacs-directory "backups"))))
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
-;;; $PATH
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-(setq exec-path (append exec-path '("/usr/local/bin")))
-
 ;;; Shell
 (setq explicit-shell-file-name "/bin/zsh")
 (setq shell-file-name "zsh")
@@ -53,6 +49,14 @@
 
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
+
+(use-package exec-path-from-shell
+  :if (memq window-system '(mac ns x))
+  :config
+  ;; run shell non-interactively for performance
+  ;; note: this means .zshrc is not evaluated, only .zshenv and .zprofile
+  (setq exec-path-from-shell-arguments nil)
+  (exec-path-from-shell-initialize))
 
 (use-package eglot)
 
