@@ -8,8 +8,19 @@
       delete-by-moving-to-trash t
       dired-dwim-target t
       file-name-shadow-mode 1)
-(setq-default indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil) ; spaces not tabs
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
+;;;; Modes
+(global-auto-revert-mode t) ; sync buffers with changes on disk
+(electric-pair-mode t) ; insert closing delimiters
+(show-paren-mode 1) ; highlight matching delimiters
+
+;; save history, cursor position
+(recentf-mode t)
+(savehist-mode t)
+(save-place-mode t)
+
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 (setq auto-save-file-name-transforms
@@ -34,10 +45,6 @@
 
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
-
-(use-package savehist
-  :config
-  (savehist-mode))
 
 ;;;; Org
 (use-package org
