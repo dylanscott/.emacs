@@ -30,7 +30,7 @@
 (setopt package-archives
 	'(("melpa-stable" . "https://stable.melpa.org/packages/")
 	  ("melpa" . "https://melpa.org/packages/")
-      ("gnu" . "https://elpa.gnu.org/packages/")))
+          ("gnu" . "https://elpa.gnu.org/packages/")))
 
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
