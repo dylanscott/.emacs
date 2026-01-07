@@ -91,6 +91,64 @@
   :config
   (evil-collection-init))
 
+;;;; Keybindings
+(use-package general
+  :config
+  (general-auto-unbind-keys)
+  (general-evil-setup t)
+
+  ;; leader prefixed
+  (general-create-definer leader
+    :prefix "SPC")
+  (leader
+    :states '(motion normal visual)
+    :keymaps 'override
+
+    "x" '(execute-extended-command :which-key "execute command")
+    "u" '(universal-argument :which-key "Universal argument")
+
+    ;; eval
+    "e" '(:ignore t :which-key "eval")
+    "eb" '(eval-buffer :which-key "eval-buffer")
+    "ee" '(eval-expression :which-key "eval-expression")
+    "ef" '(eval-defun :which-key "eval-defun")
+    "es" '(eval-last-sexp :which-key "eval-last-sexp")
+
+    ;; refactor
+    "r" '(:ignore t :whick-key "refactor")
+    "rn" '(eglot-rename :which-key "rename symbol")
+
+    ;; consult
+    "c" '(:ignore t :which-key "consult")
+    "cb" '(consult-buffer :which-key "consult-buffer")
+    "cp" '(consult-ls-git-ls-files :which-key "Find file in project")
+    "cP" '(consult-ls-git-ls-files-other-window :which-key "Find file in project (other window)")
+    "cm" '(consult-global-mark :which-key "consult-global-mark")
+    "cM" '(consult-mark :which-key "consult-mark"))
+
+   ;; normal mode
+   (general-define-key
+    :states '(normal visual)
+
+    ;; nagivation
+    "g" '(:ignore t :which-key "navigate")
+    "gr" '(xref-find-references :which-key "Find references")
+    "gd" '(xref-find-definitions :which-key "Find definition(s)"))
+
+    ;; insert mode
+   (general-define-key
+    :states 'insert
+
+    "C-SPC" 'completion-at-point
+    "M-v" 'yank)
+
+   (general-define-key
+    :keymaps 'evil-ex-search-keymap
+    "M-v" 'yank)
+
+   (general-define-key
+    "M-v" 'yank))
+
 ;;;; Theme
 (use-package doom-themes
   :config
