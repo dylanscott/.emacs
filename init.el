@@ -1,14 +1,8 @@
 ;; -*- lexical-binding: t -*-
 
-(setopt package-archives
-	'(("melpa-stable" . "https://stable.melpa.org/packages/")
-	  ("melpa" . "https://melpa.org/packages/")
-          ("gnu" . "https://elpa.gnu.org/packages/")))
-
 ;;; Adjust defaults
 (setq mac-option-modifier 'meta
       uniquify-buffer-name-style 'forward
-      use-package-always-ensure t
       load-prefer-newer t
       backup-by-copying t
       delete-by-moving-to-trash t
@@ -32,6 +26,13 @@
 (setq epa-pinentry-mode 'loopback)
 
 ;;; Packages
+(setopt package-archives
+	'(("melpa-stable" . "https://stable.melpa.org/packages/")
+	  ("melpa" . "https://melpa.org/packages/")
+      ("gnu" . "https://elpa.gnu.org/packages/")))
+
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
 
 (use-package savehist
   :config
