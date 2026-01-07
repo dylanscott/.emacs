@@ -116,6 +116,15 @@
     "er" '(eval-region :which-key "eval-region")
     "es" '(eval-last-sexp :which-key "eval-last-sexp")
 
+    ;;;;;; describe
+    "?" '(:ignore t :which-key "describe")
+    "?c" '(describe-command :which-key "describe-command")
+    "?f" '(describe-function :which-key "describe-function")
+    "?k" '(describe-key :which-key "describe-key")
+    "?m" '(describe-mode :which-key "describe-mode")
+    "?p" '(describe-package :which-key "describe-package")
+    "?v" '(describe-variable :which-key "describe-variable")
+
     ;;;;;; refactor
     "r" '(:ignore t :whick-key "refactor")
     "rn" '(eglot-rename :which-key "rename symbol")
