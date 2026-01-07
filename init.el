@@ -58,8 +58,6 @@
   (setq exec-path-from-shell-arguments nil)
   (exec-path-from-shell-initialize))
 
-(use-package eglot)
-
 (use-package which-key
   :defer 0
   :diminish which-key-mode
@@ -264,6 +262,10 @@
   :config
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
+
+;;;; Eglot
+(use-package eglot
+  :hook ((rust-mode rust-ts-mode) . eglot-ensure))
 
 (use-package rust-mode
   :init
