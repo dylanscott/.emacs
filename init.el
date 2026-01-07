@@ -27,7 +27,7 @@
       `((".*" ,(concat user-emacs-directory "auto-save/") t)))
 (setq backup-directory-alist
       `(("." . ,(concat user-emacs-directory "backups"))))
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(setq custom-file "/dev/null") ; don't use customize
 
 ;;; Shell
 (setq explicit-shell-file-name "/bin/zsh")
