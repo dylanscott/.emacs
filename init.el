@@ -46,6 +46,15 @@
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 
+(use-package eglot)
+
+(use-package which-key
+  :defer 0
+  :diminish which-key-mode
+  :config
+  (which-key-mode)
+  (setq which-key-idle-delay 1))
+
 ;;;; Org
 (use-package org
   :custom
@@ -120,3 +129,8 @@
   :config
   (setq treesit-auto-install t)
   (global-treesit-auto-mode))
+
+
+(use-package rust-mode
+  :init
+  (setq rust-mode-treesitter-derive t))
