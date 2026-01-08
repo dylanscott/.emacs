@@ -10,7 +10,9 @@
                   gc-cons-percentage 0.1)))
 
 ;;; UI defaults
-(setq frame-resize-pixelwise t
+(setq initial-frame-alist '((width . 180) (height . 60))
+      default-frame-alist '((width . 180) (height . 60))
+      frame-resize-pixelwise t
       frame-inhibit-implied-resize 'force
       window-resize-pixelwise t
       use-file-dialog nil
