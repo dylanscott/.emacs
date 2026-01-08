@@ -92,7 +92,11 @@
   (setq evil-split-window-below t)
   :config
   (evil-mode 1)
-  (define-key evil-normal-state-map (kbd "C-.") nil))
+  (keymap-unset evil-normal-state-map "C-.")
+  (keymap-unset evil-normal-state-map "g") ; these are weird
+  ;; disable scrolling keybindings
+  (keymap-unset evil-normal-state-map "z")
+  (keymap-unset evil-motion-state-map "z"))
 
 (use-package evil-collection
   :after evil
@@ -130,6 +134,7 @@
     "?"  '(:ignore t :which-key "describe")
     "?b" '(embark-bindings :which-key "bindings")
     "?c" '(describe-command :which-key "command")
+    "?d" '(eldoc :which-key "eldoc")
     "?f" '(describe-function :which-key "function")
     "?k" '(describe-key :which-key "key")
     "?m" '(describe-mode :which-key "mode")
@@ -150,30 +155,7 @@
     "cP" '(consult-ls-git-ls-files-other-window :which-key "files-other-window")
     "cy" '(consult-yank-from-kill-ring :which-key "yank")
     "cy" '(consult-yank-pop :which-key "yank-pop")
-    "c/" '(consult-line :which-key "line"))
-
-   ;;;;; normal mode
-   (general-define-key
-    :states '(normal visual)
-
-    ;;;;;; nagivation
-    "g"  '(:ignore t :which-key "navigate")
-    "gr" '(xref-find-references :which-key "Find references")
-    "gd" '(xref-find-definitions :which-key "Find definition"))
-
-   ;;;;; insert mode
-   (general-define-key
-    :states 'insert
-
-    "C-SPC" 'completion-at-point
-    "M-v" 'yank)
-
-   (general-define-key
-    :keymaps 'evil-ex-search-keymap
-    "M-v" 'yank)
-
-   (general-define-key
-    "M-v" 'yank))
+    "c/" '(consult-line :which-key "line")))
 
 ;;;; Theme
 (use-package doom-themes
