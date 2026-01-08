@@ -128,6 +128,7 @@
 
     ;;;;;; describe
     "?"  '(:ignore t :which-key "describe")
+    "?b" '(embark-bindings :which-key "bindings")
     "?c" '(describe-command :which-key "command")
     "?f" '(describe-function :which-key "function")
     "?k" '(describe-key :which-key "key")
@@ -142,10 +143,14 @@
     ;;;;;; consult
     "c"  '(:ignore t :which-key "consult")
     "cb" '(consult-buffer :which-key "buffer")
+    "cg" '(consult-ripgrep :which-key "grep")
+    "cm" '(consult-mark :which-key "mark")
+    "cM" '(consult-global-mark :which-key "global-mark")
     "cp" '(consult-ls-git-ls-files :which-key "files")
     "cP" '(consult-ls-git-ls-files-other-window :which-key "files-other-window")
-    "cm" '(consult-global-mark :which-key "global-mark")
-    "cM" '(consult-mark :which-key "mark"))
+    "cy" '(consult-yank-from-kill-ring :which-key "yank")
+    "cy" '(consult-yank-pop :which-key "yank-pop")
+    "c/" '(consult-line :which-key "line"))
 
    ;;;;; normal mode
    (general-define-key
@@ -229,18 +234,11 @@
 
 (use-package embark
   :bind
-  (("C-." . embark-act)         ;; pick some comfortable binding
-   ("M-." . embark-dwim)        ;; good alternative: M-.
-   ("C-h B" . embark-bindings)) ;; alternative for `describe-bindings'
-
+  (("C-." . embark-act)
+   ("C-;" . embark-dwim))
   :init
   (setq prefix-help-command #'embark-prefix-help-command)
-
-  ;; Show the Embark target at point via Eldoc.  You may adjust the Eldoc
-  ;; strategy, if you want to see the documentation from multiple providers.
   (add-hook 'eldoc-documentation-functions #'embark-eldoc-first-target)
-  ;; (setq eldoc-documentation-strategy #'eldoc-documentation-compose-eagerly)
-
   :config
   ;; Hide the mode line of the Embark live/completions buffers
   (add-to-list 'display-buffer-alist
