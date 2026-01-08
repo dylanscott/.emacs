@@ -111,6 +111,11 @@
   (general-auto-unbind-keys)
   (general-evil-setup t)
 
+  ;;;;; evil states
+  (general-define-key
+   :states 'motion
+   "gb" '(pop-global-mark :whick-key))
+
   ;;;;; leader prefixed
   (general-create-definer leader
     :prefix "SPC")
