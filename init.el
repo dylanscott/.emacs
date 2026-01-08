@@ -119,42 +119,42 @@
     "u" '(universal-argument :which-key "universal-argument")
 
     ;;;;;; eval
-    "e" '(:ignore t :which-key "eval")
-    "eb" '(eval-buffer :which-key "eval-buffer")
-    "ee" '(eval-expression :which-key "eval-expression")
-    "ef" '(eval-defun :which-key "eval-defun")
-    "er" '(eval-region :which-key "eval-region")
-    "es" '(eval-last-sexp :which-key "eval-last-sexp")
+    "e"  '(:ignore t :which-key "eval")
+    "eb" '(eval-buffer :which-key "buffer")
+    "ee" '(eval-expression :which-key "expression")
+    "ef" '(eval-defun :which-key "defun")
+    "er" '(eval-region :which-key "region")
+    "es" '(eval-last-sexp :which-key "last-sexp")
 
     ;;;;;; describe
-    "?" '(:ignore t :which-key "describe")
-    "?c" '(describe-command :which-key "describe-command")
-    "?f" '(describe-function :which-key "describe-function")
-    "?k" '(describe-key :which-key "describe-key")
-    "?m" '(describe-mode :which-key "describe-mode")
-    "?p" '(describe-package :which-key "describe-package")
-    "?v" '(describe-variable :which-key "describe-variable")
+    "?"  '(:ignore t :which-key "describe")
+    "?c" '(describe-command :which-key "command")
+    "?f" '(describe-function :which-key "function")
+    "?k" '(describe-key :which-key "key")
+    "?m" '(describe-mode :which-key "mode")
+    "?p" '(describe-package :which-key "package")
+    "?v" '(describe-variable :which-key "variable")
 
     ;;;;;; refactor
-    "r" '(:ignore t :whick-key "refactor")
+    "r"  '(:ignore t :whick-key "refactor")
     "rn" '(eglot-rename :which-key "rename symbol")
 
     ;;;;;; consult
-    "c" '(:ignore t :which-key "consult")
-    "cb" '(consult-buffer :which-key "consult-buffer")
-    "cp" '(consult-ls-git-ls-files :which-key "Find file in project")
-    "cP" '(consult-ls-git-ls-files-other-window :which-key "Find file in project (other window)")
-    "cm" '(consult-global-mark :which-key "consult-global-mark")
-    "cM" '(consult-mark :which-key "consult-mark"))
+    "c"  '(:ignore t :which-key "consult")
+    "cb" '(consult-buffer :which-key "buffer")
+    "cp" '(consult-ls-git-ls-files :which-key "files")
+    "cP" '(consult-ls-git-ls-files-other-window :which-key "files-other-window")
+    "cm" '(consult-global-mark :which-key "global-mark")
+    "cM" '(consult-mark :which-key "mark"))
 
    ;;;;; normal mode
    (general-define-key
     :states '(normal visual)
 
     ;;;;;; nagivation
-    "g" '(:ignore t :which-key "navigate")
+    "g"  '(:ignore t :which-key "navigate")
     "gr" '(xref-find-references :which-key "Find references")
-    "gd" '(xref-find-definitions :which-key "Find definition(s)"))
+    "gd" '(xref-find-definitions :which-key "Find definition"))
 
    ;;;;; insert mode
    (general-define-key
@@ -219,10 +219,7 @@
 
 (use-package consult-project-extra)
 
-(use-package consult-ls-git
-  :bind
-  (("C-c g f" . #'consult-ls-git)
-   ("C-c g F" . #'consult-ls-git-other-window)))
+(use-package consult-ls-git)
 
 (use-package consult-eglot)
 
