@@ -23,6 +23,8 @@
 
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
+(add-to-list 'auto-mode-alist '("\\.svg\\'" . nxml-mode))
+
 (setq auto-save-file-name-transforms
       `((".*" ,(concat user-emacs-directory "auto-save/") t)))
 (setq backup-directory-alist
