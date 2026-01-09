@@ -67,6 +67,8 @@
   (which-key-mode)
   (setq which-key-idle-delay 1))
 
+(use-package magit)
+
 ;;;; Org
 (use-package org
   :custom
