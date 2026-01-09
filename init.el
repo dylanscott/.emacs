@@ -96,7 +96,10 @@
   (keymap-unset evil-normal-state-map "g") ; these are weird
   ;; disable scrolling keybindings
   (keymap-unset evil-normal-state-map "z")
-  (keymap-unset evil-motion-state-map "z"))
+  (keymap-unset evil-motion-state-map "z")
+  ;; navigate/search by symbol
+  (defalias #'forward-evil-word #'forward-evil-symbol)
+  (setq-default evil-symbol-word-search t))
 
 (use-package evil-collection
   :after evil
