@@ -121,7 +121,11 @@
   ;;;;; evil states
   (general-define-key
    :states 'motion
-   "gb" '(pop-global-mark :whick-key))
+   "gb" '(pop-global-mark :whick-key)
+   "C-h" '(evil-window-left :which-key)
+   "C-j" '(evil-window-down :which-key)
+   "C-k" '(evil-window-up :which-key)
+   "C-l" '(evil-window-right :which-key))
 
   ;;;;; leader prefixed
   (general-create-definer leader
