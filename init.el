@@ -258,7 +258,9 @@
 
 ;;;; Eglot
 (use-package eglot
-  :hook ((rust-mode rust-ts-mode) . eglot-ensure))
+  :hook ((rust-mode rust-ts-mode typescript-ts-mode) . eglot-ensure)
+  :config
+  (add-to-list 'eglot-server-programs '(typescript-ts-mode . ("tsgo" "--lsp" "--stdio"))))
 
 (use-package rust-mode
   :init
