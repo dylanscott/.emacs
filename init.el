@@ -27,6 +27,7 @@
 
 (setq auto-save-file-name-transforms
       `((".*" ,(concat user-emacs-directory "auto-save/") t)))
+(setq lock-file-name-transforms '(("\\`/.*/\\([^/]+\\)\\'" "~/.emacs.d/aux/\\1" t)))
 (setq backup-directory-alist
       `(("." . ,(concat user-emacs-directory "backups"))))
 (setq custom-file "/dev/null") ; don't use customize
