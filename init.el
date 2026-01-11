@@ -181,11 +181,40 @@
 ;;;; Theme
 (use-package doom-themes
   :config
-  (setq doom-themes-enable-bold t
-        doom-themes-enable-italic t)
   (load-theme 'doom-spacegrey t)
   (doom-themes-visual-bell-config) ; enable flashing mode-line on errors
-  (doom-themes-org-config))
+  (doom-themes-org-config)
+  :custom
+  (doom-themes-enable-bold t)
+  (doom-themes-enable-italic t))
+
+(use-package doom-modeline
+  :init (doom-modeline-mode 1))
+
+(use-package nerd-icons
+  :init
+  (add-to-list 'default-frame-alist '(font . "SauceCodePro Nerd Font Mono-14"))
+  :custom
+  (nerd-icons-font-family "SauceCodePro Nerd Font Mono"))
+
+(use-package nerd-icons-dired
+  :hook
+  (dired-mode . nerd-icons-dired-mode))
+
+(use-package nerd-icons-completion
+  :after marginalia
+  :hook (marginalia-mode . nerd-icons-completion-marginalia-setup)
+  :config
+  (nerd-icons-completion-mode))
+
+(use-package nerd-icons-corfu
+  :after corfu
+  :config
+  (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
+
+(use-package solaire-mode
+  :init
+  (solaire-global-mode 1))
 
 (use-package olivetti
   :hook
