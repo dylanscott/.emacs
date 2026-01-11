@@ -218,7 +218,7 @@
 
 (use-package olivetti
   :hook
-  (org-mode . olivetti-mode)
+  ((org-mode markdown-mode gfm-mode) . olivetti-mode)
   :config
   (setq olivetti-body-width 88))
 
@@ -299,3 +299,20 @@
 (use-package rust-mode
   :init
   (setq rust-mode-treesitter-derive t))
+
+(use-package markdown-mode
+  :commands gfm-mode markdown-mode
+  :mode
+  ("README\\.md\\'" . gfm-mode)
+  ("\\.md\\'" . markdown-mode)
+  :custom
+  (markdown-header-scaling t)
+  (markdown-hide-urls t)
+  (markdown-fontify-code-blocks-natively t))
+
+(use-package svelte-ts-mode
+  :after eglot
+  :vc t
+  :load-path "~/Code/svelte-ts-mode"
+  :config
+  (add-to-list 'eglot-server-programs '(svelte-ts-mode . ("svelteserver" "--stdio"))))
