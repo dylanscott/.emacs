@@ -113,6 +113,10 @@
   :config
   (evil-collection-init))
 
+(use-package evil-surround
+  :config
+  (global-evil-surround-mode 1))
+
 ;;;; Keybindings
 (use-package general
   :config
