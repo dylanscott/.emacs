@@ -139,9 +139,9 @@
     :states '(motion normal visual)
     :keymaps 'override
 
+    "u" '(universal-argument :which-key "universal-argument")
     "x" '(execute-extended-command :which-key "execute-extended-command")
     "X" '(execute-extended-command-for-buffer :which-key "execute-extended-command-for-buffer")
-    "u" '(universal-argument :which-key "universal-argument")
 
     ;;;;;; eval
     "e"  '(:ignore t :which-key "eval")
@@ -172,8 +172,8 @@
     "cg" '(consult-ripgrep :which-key "grep")
     "cm" '(consult-mark :which-key "mark")
     "cM" '(consult-global-mark :which-key "global-mark")
-    "cp" '(consult-ls-git-ls-files :which-key "files")
-    "cP" '(consult-ls-git-ls-files-other-window :which-key "files-other-window")
+    "cp" '(consult-project-extra-find :which-key "project")
+    "cP" '(consult-project-extra-find-other-window :which-key "project-other-window")
     "cy" '(consult-yank-from-kill-ring :which-key "yank")
     "cy" '(consult-yank-pop :which-key "yank-pop")
     "c/" '(consult-line :which-key "line")))
