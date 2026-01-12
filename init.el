@@ -126,11 +126,15 @@
   ;;;;; evil states
   (general-define-key
    :states 'motion
-   "gb" '(pop-global-mark :whick-key)
    "C-h" '(evil-window-left :which-key)
    "C-j" '(evil-window-down :which-key)
    "C-k" '(evil-window-up :which-key)
-   "C-l" '(evil-window-right :which-key))
+   "C-l" '(evil-window-right :which-key)
+
+   "g/" '(consult-line :which-key)
+   "g?" '(consult-line-multi :which-key)
+   "gm" '(consult-mark :which-key)
+   "gM" '(consult-global-mark :which-key))
 
   ;;;;; leader prefixed
   (general-create-definer leader
@@ -245,12 +249,14 @@
 (use-package consult
   :hook (completion-list-mode . consult-preview-at-point-mode)
   :init
-  (setq register-preview-delay 0.5
-        register-preview-function #'consult-register-format)
   (advice-add #'register-preview :override #'consult-register-window)
-  (setq xref-show-xrefs-function #'consult-xref
-        xref-show-definitions-function #'consult-xref)
-  (setq consult-narrow-key "<"))
+  :custom
+  (register-preview-delay 0.5)
+  (register-preview-function #'consult-register-format)
+  (xref-show-xrefs-function #'consult-xref)
+  (xref-show-definitions-function #'consult-xref)
+  (consult-narrow-key ">")
+  (consult-widen-key "<"))
 
 (use-package consult-project-extra)
 
