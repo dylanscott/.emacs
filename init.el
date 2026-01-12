@@ -192,8 +192,6 @@
   :init (doom-modeline-mode 1))
 
 (use-package nerd-icons
-  :init
-  (add-to-list 'default-frame-alist '(font . "SauceCodePro Nerd Font Mono-14"))
   :custom
   (nerd-icons-font-family "SauceCodePro Nerd Font Mono"))
 

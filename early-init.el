@@ -22,6 +22,7 @@
       inhibit-x-resources t
       inhibit-startup-echo-area-message user-login-name
       inhibit-startup-buffer-menu t)
+(add-to-list 'default-frame-alist '(font . "SauceCodePro Nerd Font Mono-14"))
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
