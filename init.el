@@ -192,6 +192,27 @@
 (use-package doom-modeline
   :init (doom-modeline-mode 1))
 
+(use-package dashboard
+  :custom
+  (dashboard-startupify-list '(dashboard-insert-banner dashboard-insert-newline dashboard-insert-items))
+  (dashboard-items '((projects . 5) (recents . 5)))
+  (dashboard-item-names '(("Recent Files:" . "Recent") ("Projects:" . "Projects")))
+  (dashboard-projects-backend 'project-el)
+  (dashboard-startup-banner 'logo)
+  (dashboard-center-content t)
+  (dashboard-vertically-center-content t)
+  (dashboard-display-icons-p t)
+  (dashboard-icon-type 'nerd-icons)
+  (dashboard-set-heading-icons t)
+  (dashboard-heading-icon-height 1.75)
+  (dashboard-heading-icon-v-adjust -0.125)
+  (dashboard-set-file-icons t)
+  (dashboard-icon-file-height 1.75)
+  (dashboard-icon-file-v-adjust -0.125)
+  :config
+  (dashboard-modify-heading-icons '((projects . "nf-oct-terminal")))
+  (dashboard-setup-startup-hook))
+
 (use-package nerd-icons
   :custom
   (nerd-icons-font-family "SauceCodePro Nerd Font Mono"))
