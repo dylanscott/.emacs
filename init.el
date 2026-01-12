@@ -100,10 +100,8 @@
   :config
   (evil-mode 1)
   (keymap-unset evil-normal-state-map "C-.")
-  (keymap-unset evil-normal-state-map "g") ; these are weird
-  ;; disable scrolling keybindings
-  (keymap-unset evil-normal-state-map "z")
-  (keymap-unset evil-motion-state-map "z")
+  ;; free these up for more motion bindings
+  (keymap-unset evil-normal-state-map "g")
   ;; navigate/search by symbol
   (defalias #'forward-evil-word #'forward-evil-symbol)
   (setq-default evil-symbol-word-search t))
@@ -157,7 +155,7 @@
     "er" '(eval-region :which-key "region")
     "es" '(eval-last-sexp :which-key "last-sexp")
 
-    ;;;;;; describe
+    ;;;;;; help
     "?"  '(:ignore t :which-key "describe")
     "?b" '(embark-bindings :which-key "bindings")
     "?c" '(describe-command :which-key "command")
@@ -176,13 +174,10 @@
     "c"  '(:ignore t :which-key "consult")
     "cb" '(consult-buffer :which-key "buffer")
     "cg" '(consult-ripgrep :which-key "grep")
-    "cm" '(consult-mark :which-key "mark")
-    "cM" '(consult-global-mark :which-key "global-mark")
     "cp" '(consult-project-extra-find :which-key "project")
     "cP" '(consult-project-extra-find-other-window :which-key "project-other-window")
     "cy" '(consult-yank-from-kill-ring :which-key "yank")
-    "cy" '(consult-yank-pop :which-key "yank-pop")
-    "c/" '(consult-line :which-key "line")))
+    "cY" '(consult-yank-pop :which-key "yank-pop")))
 
 ;;;; Theme
 (use-package doom-themes
@@ -267,6 +262,10 @@
 
 (use-package consult-project-extra)
 (use-package consult-eglot)
+(use-package consult-eglot-embark
+  :after (consult-eglot embark)
+  :init
+  (consult-eglot-embark-mode))
 
 (use-package embark
   :bind
