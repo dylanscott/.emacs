@@ -248,6 +248,11 @@
   :init
   (global-corfu-mode))
 
+(use-package marginalia
+  :init
+  (marginalia-mode))
+
+;;;; Consulting
 (use-package consult
   :hook (completion-list-mode . consult-preview-at-point-mode)
   :init
@@ -261,14 +266,7 @@
   (consult-widen-key "<"))
 
 (use-package consult-project-extra)
-
-(use-package consult-ls-git)
-
 (use-package consult-eglot)
-
-(use-package marginalia
-  :init
-  (marginalia-mode))
 
 (use-package embark
   :bind
