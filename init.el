@@ -55,18 +55,20 @@
 
 (use-package exec-path-from-shell
   :if (memq window-system '(mac ns x))
-  :config
+  :custom
   ;; run shell non-interactively for performance
   ;; note: this means .zshrc is not evaluated, only .zshenv and .zprofile
-  (setq exec-path-from-shell-arguments nil)
+  (exec-path-from-shell-arguments nil)
+  :config
   (exec-path-from-shell-initialize))
 
 (use-package which-key
   :defer 0
   :diminish which-key-mode
+  :custom
+  (which-key-idle-delay 1)
   :config
-  (which-key-mode)
-  (setq which-key-idle-delay 1))
+  (which-key-mode))
 
 (use-package magit)
 
@@ -90,11 +92,11 @@
          :map evil-insert-state-map
          ("C-k" . nil)
          ("C-." . nil))
-  :init
-  (setq evil-want-keybinding nil)
-  (setq evil-want-C-u-scroll t)
-  (setq evil-vsplit-window-right t)
-  (setq evil-split-window-below t)
+  :custom
+  (evil-want-keybinding nil) ; evil-collection
+  (evil-want-C-u-scroll t)
+  (evil-vsplit-window-right t)
+  (evil-split-window-below t)
   :config
   (evil-mode 1)
   (keymap-unset evil-normal-state-map "C-.")
@@ -221,8 +223,8 @@
 (use-package olivetti
   :hook
   ((org-mode markdown-mode gfm-mode) . olivetti-mode)
-  :config
-  (setq olivetti-body-width 88))
+  :custom
+  (olivetti-body-width 88))
 
 ;;;; Completion
 (use-package vertico
