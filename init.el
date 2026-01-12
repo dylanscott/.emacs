@@ -161,6 +161,7 @@
     "?c" '(describe-command :which-key "command")
     "?d" '(eldoc :which-key "eldoc")
     "?f" '(describe-function :which-key "function")
+    "?h" '(eglot-inlay-hints-mode :which-key "toggle inlay hints")
     "?k" '(describe-key :which-key "key")
     "?m" '(describe-mode :which-key "mode")
     "?p" '(describe-package :which-key "package")
@@ -168,6 +169,9 @@
 
     ;;;;;; refactor
     "r"  '(:ignore t :whick-key "refactor")
+    "r." '(eglot-code-actions :which-key "code actions")
+    "re" '(eglot-code-action-extract :which-key "extract")
+    "ri" '(eglot-code-action-inline :which-key "inline")
     "rn" '(eglot-rename :which-key "rename symbol")
 
     ;;;;;; consult
