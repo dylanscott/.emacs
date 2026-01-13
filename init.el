@@ -322,9 +322,10 @@
 
 ;;;; Eglot
 (use-package eglot
-  :hook ((rust-mode rust-ts-mode typescript-ts-mode) . eglot-ensure)
+  :hook ((rust-mode rust-ts-mode typescript-ts-mode svelte-ts-mode) . eglot-ensure)
   :config
-  (add-to-list 'eglot-server-programs '(typescript-ts-mode . ("tsgo" "--lsp" "--stdio"))))
+  (add-to-list 'eglot-server-programs '(typescript-ts-mode . ("tsgo" "--lsp" "--stdio")))
+  (add-to-list 'eglot-server-programs '(svelte-ts-mode . ("svelteserver" "--stdio"))))
 
 (use-package rust-mode
   :init
@@ -343,6 +344,4 @@
 (use-package svelte-ts-mode
   :after eglot
   :vc t
-  :load-path "~/Code/svelte-ts-mode"
-  :config
-  (add-to-list 'eglot-server-programs '(svelte-ts-mode . ("svelteserver" "--stdio"))))
+  :load-path "~/Code/svelte-ts-mode")
