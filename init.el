@@ -143,9 +143,12 @@
     :states '(motion normal visual)
     :keymaps 'override
 
+    "b" '(consult-buffer :which-key "consult-buffer")
     "u" '(universal-argument :which-key "universal-argument")
     "x" '(execute-extended-command :which-key "execute-extended-command")
     "X" '(execute-extended-command-for-buffer :which-key "execute-extended-command-for-buffer")
+    "y" '(consult-yank-from-kill-ring :which-key "yank")
+    "Y" '(consult-yank-pop :which-key "yank-pop")
 
     ;;;;;; eval
     "e"  '(:ignore t :which-key "eval")
@@ -155,17 +158,12 @@
     "er" '(eval-region :which-key "region")
     "es" '(eval-last-sexp :which-key "last-sexp")
 
-    ;;;;;; help
-    "?"  '(:ignore t :which-key "describe")
-    "?b" '(embark-bindings :which-key "bindings")
-    "?c" '(describe-command :which-key "command")
-    "?d" '(eldoc :which-key "eldoc")
-    "?f" '(describe-function :which-key "function")
-    "?h" '(eglot-inlay-hints-mode :which-key "toggle inlay hints")
-    "?k" '(describe-key :which-key "key")
-    "?m" '(describe-mode :which-key "mode")
-    "?p" '(describe-package :which-key "package")
-    "?v" '(describe-variable :which-key "variable")
+    ;;;;;; project
+    "p"  '(:ignore t :whick-key "project")
+    "pf" '(consult-project-extra-find :which-key "find-file")
+    "pF" '(consult-project-extra-find-other-window :which-key "find-file-other-window")
+    "ps" '(project-shell :which-key "shell")
+    "pp" '(project-switch :which-key "switch-project")
 
     ;;;;;; refactor
     "r"  '(:ignore t :whick-key "refactor")
@@ -174,14 +172,18 @@
     "ri" '(eglot-code-action-inline :which-key "inline")
     "rn" '(eglot-rename :which-key "rename symbol")
 
-    ;;;;;; consult
-    "c"  '(:ignore t :which-key "consult")
-    "cb" '(consult-buffer :which-key "buffer")
-    "cg" '(consult-ripgrep :which-key "grep")
-    "cp" '(consult-project-extra-find :which-key "project")
-    "cP" '(consult-project-extra-find-other-window :which-key "project-other-window")
-    "cy" '(consult-yank-from-kill-ring :which-key "yank")
-    "cY" '(consult-yank-pop :which-key "yank-pop")))
+    ;;;;;; help
+    "?"  '(:ignore t :which-key "help")
+    "?b" '(embark-bindings :which-key "bindings")
+    "?c" '(describe-command :which-key "command")
+    "?d" '(eldoc :which-key "eldoc")
+    "?f" '(describe-function :which-key "function")
+    "?h" '(eglot-inlay-hints-mode :which-key "toggle inlay hints")
+    "?k" '(describe-key :which-key "key")
+    "?m" '(describe-mode :which-key "mode")
+    "?p" '(describe-package :which-key "package")
+    "?v" '(describe-variable :which-key "variable")))
+
 
 ;;;; Theme
 (use-package doom-themes
