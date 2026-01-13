@@ -48,7 +48,8 @@
 (setopt package-archives
 	'(("melpa-stable" . "https://stable.melpa.org/packages/")
 	  ("melpa" . "https://melpa.org/packages/")
-          ("gnu" . "https://elpa.gnu.org/packages/")))
+          ("gnu" . "https://elpa.gnu.org/packages/")
+          ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
 
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
@@ -61,6 +62,8 @@
   (exec-path-from-shell-arguments nil)
   :config
   (exec-path-from-shell-initialize))
+
+(use-package eat)
 
 (use-package which-key
   :defer 0
@@ -160,9 +163,10 @@
 
     ;;;;;; project
     "p"  '(:ignore t :whick-key "project")
+    "pd" '(project-dired :which-key "dired")
     "pf" '(consult-project-extra-find :which-key "find-file")
     "pF" '(consult-project-extra-find-other-window :which-key "find-file-other-window")
-    "ps" '(project-shell :which-key "shell")
+    "ps" '(eat-project :which-key "shell")
     "pp" '(project-switch :which-key "switch-project")
 
     ;;;;;; refactor
