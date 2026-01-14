@@ -167,7 +167,7 @@
     "pf" '(consult-project-extra-find :which-key "find-file")
     "pF" '(consult-project-extra-find-other-window :which-key "find-file-other-window")
     "ps" '(eat-project :which-key "shell")
-    "pp" '(project-switch :which-key "switch-project")
+    "pp" '(project-switch-project :which-key "switch-project")
 
     ;;;;;; refactor
     "r"  '(:ignore t :whick-key "refactor")
